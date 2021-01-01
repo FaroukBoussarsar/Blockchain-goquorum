@@ -1,23 +1,34 @@
 # Blockchain-goquorum
 cd network/3-nodes-raft-tessera-bash
+
 ./start.sh
+
 Sending a private transaction
-Send an example private contract from Node 1 to Node 2 (this is denoted by Node 2’s public key passed via privateFor: ["QfeDAys9MPDs2XHExtc84jKGHxZg/aj52DTh0vtA3Xc="] in private-contract.js):
+
+Send an example private contract from Node 1 to Node 2 (this is denoted by Node 2’s public key passed via privateFor: 
+
+["QfeDAys9MPDs2XHExtc84jKGHxZg/aj52DTh0vtA3Xc="] in private-contract.js):
 
 
 ./runscript.sh private_contract.js
+
 Take note of the TransactionHash printed to the terminal.
 
 Inspecting the GoQuorum nodes
+
 You can inspect any of the GoQuorum nodes by using ./attach.sh to open the geth JavaScript console. For this demo, you will be inspecting Node 1, Node 2, and Node 3.
 
 It is recommended to use separate terminal windows for each node you are inspecting. In each terminal, ensure you are in your network’s directory, then:
+
 
 In terminal 1 run ./attach.sh 1 to attach to node 1
 In terminal 2 run ./attach.sh 2 to attach to node 2
 In terminal 3 run ./attach.sh 3 to attach to node 3
 To look at the private transaction that was just sent, run the following command in one of the terminals:
+
 eth.getTransaction("your hush")
+
+
 where you should replace this hash with the TransactionHash that was previously printed to the terminal. This will print a result of the form:
 
 
